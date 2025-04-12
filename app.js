@@ -1,18 +1,8 @@
-function greet(){
-    return new Promise((resolve, reject) => {
-        setTimeout(()=>{
-            resolve("Hello 1");
-        },2000);
-        
-    })
+async function f(){
+    let res = await fetch("https://catfact.ninja/fact");
+    let data = await res.json();
+    console.log(data); //res.json() when used with await not returning promise
+    
 }
 
-
-
-async function hello() {
-    let data = await greet(); 
-    console.log(data);
-    console.log("Hello 2");
-}
-
-hello();
+f();
